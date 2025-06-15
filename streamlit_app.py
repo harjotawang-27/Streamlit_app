@@ -17,7 +17,7 @@ def load_data_sla():
 df_sla = load_data_sla()
 
 # UI Header
-st.title("📦 Dashboard Insentif Kurir per Gerai")
+st.title("📦 Dashboard Monitoring Kurir dan Gerai")
 
 # Filter tanggal
 df['PICKUP_DATE_TIME'] = pd.to_datetime(df['PICKUP_DATE_TIME'])
@@ -57,7 +57,7 @@ filtered_kurir = filtered_kurir.groupby(['NAMA_SIGESIT','NAMA_GERAI'], as_index=
 #    st.subheader("📋 Data pada Tanggal Terpilih")
 #    st.dataframe(filtered_kurir)
 
-st.subheader("📈 Visualisasi Tambahan: SLA Pickup Performance")
+st.subheader("📈 Produktivitas Kurir dan SLA Pickup Performance Gerai")
 
 # Buat dua kolom sejajar
 col1, col2 = st.columns([1.2, 1])
@@ -112,7 +112,7 @@ kurir_filtered = filtered_kurir[filtered_kurir['NAMA_GERAI'].isin(selected_gerai
 if kurir_filtered.empty:
     st.warning("Tidak ada data untuk gerai yang dipilih.")
 else:
-    st.subheader("📊 Jumlah Pickup dan Insentif per Kurir (Multi-Gerai)")
+    st.subheader("📊 Produtivitas Kurir Setiap Gerai ")
 
     # Buat label kombinasi Gerai + Kurir untuk X-Axis
     kurir_filtered['Kurir_Gerai'] = kurir_filtered['NAMA_SIGESIT'] + " (" + kurir_filtered['NAMA_GERAI'] + ")"
@@ -164,7 +164,7 @@ avg_insentif = agg['Total_Insentif'].mean()
 # -----------------------------
 # 🔍 TAMPILKAN TABEL
 # -----------------------------
-st.subheader(f"📋 Data Agregasi Gerai ({start_date} s.d. {end_date})")
+st.subheader(f"📋 Data Load dan Insentif Gerai ({start_date} s.d. {end_date})")
 st.dataframe(agg)
 
 # -----------------------------
