@@ -109,8 +109,11 @@ selected_gerai = st.multiselect(
 kurir_filtered = filtered_kurir[filtered_kurir['NAMA_GERAI'].isin(selected_gerai)]
 
 st.markdown("<br><br>", unsafe_allow_html=True)
+
 st.markdown("###ℹ️ Tabel diatas menampilkan jumlah produktifitas kurir dan insentif yang didapat pada periode tertentu, sehingga dapat dilihat Si Gesit yang mempunyai performa baik atau tidak ")
 st.markdown("###ℹ️ Chart SLA Pickup Gerai menunjukan performa pickup setiap gerai pada periode tertentu untuk mengukur performa perbandingan SLA Pickup setiap Gerai  ")
+
+st.markdown("<br>", unsafe_allow_html=True)
 # Jika kosong
 if kurir_filtered.empty:
     st.warning("Tidak ada data untuk gerai yang dipilih.")
